@@ -1,0 +1,15 @@
+# Local datasets supplied through authorised channels
+Assignment2Data/
+*.npy
+
+# Jupyter and Python artifacts
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Trained weights and large experiment artifacts
+*.h5
+*.keras
+*.ckpt
+checkpoints/
