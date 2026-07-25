@@ -63,6 +63,10 @@ The final CNN contains three convolution-plus-max-pooling blocks with 32, 64, an
 
 The tuning cells can take appreciably longer than the final-model cells. Their outputs are retained for inspection.
 
+## Continuous verification
+
+GitHub Actions runs a fast [model smoke test](tests/smoke_test.py) on every push. It installs the project runtime and builds, trains for one epoch, and predicts with the Random Forest, MLP, and CNN on synthetic 28 × 28 RGB inputs. This validates the environment and end-to-end model paths without redistributing the course-provided dataset or misrepresenting synthetic-test results as the reported experiment metrics.
+
 ## Tech stack
 
 Python · TensorFlow/Keras · scikit-learn · NumPy · pandas · Matplotlib · Seaborn
