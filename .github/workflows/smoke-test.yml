@@ -1,0 +1,22 @@
+name: Model smoke test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install runtime dependencies
+        run: pip install tensorflow==2.16.2 scikit-learn==1.5.2 numpy==1.26.4
+      - name: Build, train, and predict with all three models
+        run: python tests/smoke_test.py
